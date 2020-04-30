@@ -15,25 +15,34 @@
     </div>
 
     <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 row-gap-8 sm:row-gap-12 px-4 sm:px-0">
-      <facebook-post />
-      <facebook-post />
-      <facebook-post />
-      <facebook-post />
-      <facebook-post />
-      <facebook-post />
-      <facebook-post />
-      <facebook-post />
-      <facebook-post />
-      <facebook-post />
-      <facebook-post />
+      <facebook-post
+        v-for="post in $page.allPost.edges"
+        :key="`${post.node.message}+${post.node.author}`"
+        :author="post.node.author"
+        :message="post.node.message"
+      />
     </div>
   </Layout>
 </template>
+
+<page-query>
+query Post {
+  allPost {
+    edges {
+      node {
+        author,
+        message
+      }
+    }
+  }
+}
+</page-query>
 
 <script>
 import FacebookPost from '@/components/FacebookPost'
 
 export default {
+  name: 'Homepage',
   components: {
     FacebookPost
   },

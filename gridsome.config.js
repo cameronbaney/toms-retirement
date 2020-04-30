@@ -8,7 +8,19 @@ module.exports = {
   siteName: 'Gridsome',
   plugins: [
     {
-      use: "gridsome-plugin-tailwindcss"
+      use: "gridsome-plugin-tailwindcss",
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: '_posts/**/*.md',
+        typeName: 'Post'
+      }
     }
-  ]
+  ],
+  transformers: {
+    remark: {
+      // global remark options
+    }
+  }
 }
