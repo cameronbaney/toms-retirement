@@ -37,7 +37,7 @@ query {
         id,
         author,
         message,
-        image
+        images
       }
     }
   }

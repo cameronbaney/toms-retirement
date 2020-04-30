@@ -14,7 +14,7 @@ collections:
       - {label: "Layout", name: "layout", widget: "hidden", default: "post"}
       - {label: "Author", name: "author", widget: "string"}
       - {label: "Message", name: "message", widget: "text"}
-      - {label: "Images", name: "image", widget: "image", media_library: { config: { multiple: true } } }
+      - {label: "Images", name: "images", widget: "image", media_library: { config: { multiple: true } } }
   - name: "hero"
     label: "Hero"
     folder: "_cms/hero"

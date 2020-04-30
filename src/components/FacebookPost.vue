@@ -17,7 +17,7 @@ export default {
         return {
           author: '',
           message: '',
-          image: ''
+          images: ''
         }
       }
     }
@@ -25,7 +25,7 @@ export default {
 
   computed: {
     postImage: function() {
-      return this.post.image ? this.post.image : ''
+      return this.post.images ? this.post.images : ''
     }
   }
 }
