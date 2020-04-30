@@ -1,8 +1,8 @@
 <template>
   <div class="facebook-post">
-    <!-- <g-image alt="Example image" src="~/favicon.png" width="135" /> -->
-    <p class="text-base mb-2">{{ message }}</p>
-    <p v-if="author" class="text-sm italic tracking-wide text-gray-700 font-medium">{{ author }}</p>
+    <g-image v-if="postImage" alt="Example image" :src="postImage" />
+    <p class="text-base mb-2">{{ post.message }}</p>
+    <p v-if="author" class="text-sm italic tracking-wide text-gray-700 font-medium">{{ post.author }}</p>
   </div>
 </template>
 
@@ -11,13 +11,21 @@ export default {
   name: 'FacebookPost',
 
   props: {
-    author: {
-      type: String,
-      default: ''
-    },
-    message: {
-      type: String,
-      default: ''
+    post: {
+      type: Object,
+      default: () => {
+        return {
+          author: '',
+          message: '',
+          image: ''
+        }
+      }
+    }
+  },
+
+  computed: {
+    postImage: function() {
+      return this.post.image ? this.post.image : ''
     }
   }
 }

@@ -14,9 +14,8 @@
     <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 row-gap-8 sm:row-gap-12 px-4 sm:px-0">
       <facebook-post
         v-for="post in $page.allPost.edges"
-        :key="`${post.node.message}+${post.node.author}`"
-        :author="post.node.author"
-        :message="post.node.message"
+        :key="post.id"
+        :post="post.node"
       />
     </div>
   </Layout>
@@ -35,8 +34,10 @@ query {
   allPost {
     edges {
       node {
+        id,
         author,
-        message
+        message,
+        image
       }
     }
   }

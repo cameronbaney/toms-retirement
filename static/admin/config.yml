@@ -1,7 +1,7 @@
 backend:
   name: git-gateway
   branch: master # Branch to update (optional; defaults to master)
-media_folder: "images/uploads" # Media files will be stored in the repo under images/uploads
+media_folder: "static/images/uploads" # Media files will be stored in the repo under images/uploads
 public_folder: "/images/uploads"
 
 collections:
@@ -14,12 +14,7 @@ collections:
       - {label: "Layout", name: "layout", widget: "hidden", default: "post"}
       - {label: "Author", name: "author", widget: "string"}
       - {label: "Message", name: "message", widget: "text"}
-      - label: "Images"
-        name: "thumbnail"
-        widget: "image"
-        media_library:
-          config:
-            multiple: true
+      - {label: "Images", name: "image", widget: "image", media_library: { config: { multiple: true } } }
   - name: "hero"
     label: "Hero"
     folder: "_cms/hero"
