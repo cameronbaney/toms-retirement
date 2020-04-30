@@ -9,10 +9,7 @@
       />
     </div>
 
-    <div class="mb-8 sm:mb-16 px-4 sm:px-0">
-      <h2 class="text-3xl sm:text-6xl font-bold">Lorem Ipsum</h2>
-      <p class="text-xl sm:text-2xl font-semibold">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe odio totam harum esse cumque, sint sequi dignissimos? Ipsam incidunt, molestias saepe, quas porro sint delectus ut quidem nam officiis excepturi?</p>
-    </div>
+    <div class="mb-8 sm:mb-16 px-4 sm:px-0" v-html="$page.allHero.edges[0].node.content" />
 
     <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 row-gap-8 sm:row-gap-12 px-4 sm:px-0">
       <facebook-post
@@ -26,7 +23,15 @@
 </template>
 
 <page-query>
-query Post {
+query {
+  allHero {
+    edges {
+      node {
+        id,
+        content
+      }
+    }
+  }
   allPost {
     edges {
       node {

@@ -16,6 +16,13 @@ module.exports = {
         path: '_posts/**/*.md',
         typeName: 'Post'
       }
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: '_cms/hero/**/*.md',
+        typeName: 'Hero'
+      }
     }
   ],
   transformers: {
